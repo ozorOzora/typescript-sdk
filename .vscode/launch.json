@@ -1,0 +1,33 @@
+{
+    // Use IntelliSense to learn about possible attributes.
+    // Hover to view descriptions of existing attributes.
+    // For more information, visit: https://go.microsoft.com/fwlink/?linkid=830387
+    "version": "0.2.0",
+    "configurations": [
+
+        {
+            "type": "node",
+            "request": "launch",
+            "name": "Launch MCP Server (pnpm + tsx)",
+            // Use pnpm exec tsx so workspace packages (workspace:^) resolve correctly
+            "runtimeExecutable": "pnpm",
+            "runtimeArgs": ["exec", "tsx", "--", "src/simpleStreamableHttp.ts"],
+            // Run from the package directory so node resolves examples/server/node_modules and workspace links
+            "cwd": "${workspaceFolder}/examples/server",
+            "console": "integratedTerminal",
+            "skipFiles": ["<node_internals>/**"]
+        },
+        {
+            "type": "node",
+            "request": "launch",
+            "name": "Launch MCP Client (pnpm + tsx)",
+            // Use pnpm exec tsx so workspace packages (workspace:^) resolve correctly
+            "runtimeExecutable": "pnpm",
+            "runtimeArgs": ["exec", "tsx", "--", "src/simpleStreamableHttp.ts"],
+            // Run from the package directory so node resolves examples/client/node_modules and workspace links
+            "cwd": "${workspaceFolder}/examples/client",
+            "console": "integratedTerminal",
+            "skipFiles": ["<node_internals>/**"]
+        }
+    ]
+}
